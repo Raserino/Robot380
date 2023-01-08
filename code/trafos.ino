@@ -4,7 +4,6 @@ const double l1 = 1, b1 = 0;
 const double l2 = 0, b2 = 0;
 const double l3 = 1, b3 = 0;
 const double l4 = 1;
-int state = 0;
 
 BLA::Matrix<3> forward(BLA::Matrix<3> theta)
 {
@@ -138,39 +137,4 @@ void printMatrix(BLA::Matrix<3,3> matrix)
   }
   Serial.println();
   return;
-}
-
-void setup() 
-{
-  Serial.begin(9600);
-  Serial.println("Start");
-
-  long t_start = millis();
-  BLA::Matrix<3> X_d= {1, 1, 1};
-  BLA::Matrix<3> theta = backward(X_d);
-  long duration = millis() - t_start;
-  
-  Serial.print(rad2deg(theta(0)));
-  Serial.print(" ");
-  Serial.print(rad2deg(theta(1)));
-  Serial.print(" ");
-  Serial.print(rad2deg(theta(2)));
-  Serial.print(" time: ");
-  Serial.print(duration);
-  Serial.print('\n');
-  
-  delay(1000);
-  
-//  switch(state)
-//  {
-//    case 0:
-//      break;
-//    default:
-//      break;
-//  } 
-}
-
-void loop()
-{
-  
 }
